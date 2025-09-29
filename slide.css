@@ -1,0 +1,25 @@
+.slider {
+  width: 100%;       /* Full width */
+  overflow: hidden;  /* Hide the extra images */
+  border: 2px solid red; /* Optional border */
+
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 8); /* Image width * number of images (adjust) */
+  animation: scroll 20s linear infinite;
+}
+
+.slide-track img {
+  width: 250px;      /* Set your image width */
+  height: 400px;
+  object-fit: cover;
+  margin-right: 10px; /* Space between images */
+border-radius: 15px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Move left */
+}

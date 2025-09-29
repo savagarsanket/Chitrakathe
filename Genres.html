@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Movie Site</title>
+  <style>
+    body {
+      background: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: red;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Search bar */
+    #search {
+      width: 80%;
+      padding: 10px;
+      margin: 10px auto;
+      display: block;
+      border: 2px solid red;
+      border-radius: 8px;
+      font-size: 18px;
+      background: #111;
+      color: white;
+    }
+
+    /* Genre buttons */
+    .genres {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .genre-btn {
+      background: #111;
+      border: 1px solid red;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .genre-btn:hover {
+      background: red;
+      transform: scale(1.1);
+    }
+
+    /* Movie grid */
+    #movie-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .movie {
+      background: #111;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px;
+      border: 1px solid red;
+      transition: 0.3s;
+    }
+
+    .movie:hover {
+      background: red;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎬 My Movie Site</h1>
+
+  <!-- Search bar -->
+  <input type="text" id="search" placeholder="Search movies..." onkeyup="searchMovies()">
+
+  <!-- Genre buttons -->
+  <div class="genres">
+    <button class="genre-btn" onclick="filterGenre('all')">All</button>
+    <button class="genre-btn" onclick="filterGenre('action')">Action</button>
+    <button class="genre-btn" onclick="filterGenre('drama')">epic</button>
+    <button class="genre-btn" onclick="filterGenre('comedy')">Comedy</button>
+    <button class="genre-btn" onclick="filterGenre('horror')">Horror</button>
+    <button class="genre-btn" onclick="filterGenre('romance')">Romance</button>
+  </div>
+
+  <!-- Movie list -->
+  <div id="movie-list">
+    <div class="movie action">KGF Chapter 2</div>
+    <div class="movie action drama">RRR</div>
+    <div class="movie drama">Kantara</div>
+    <div class="movie epic">Ramayana</div>
+    <div class="movie action">Toxic</div>
+    <div class="movie romance">Love Mocktale</div>
+    <div class="movie action">kottigobba 3</div>
+    <div class="movie comedy romance">Kirik Party</div>
+    <div class="movie horror action">Mummy Save Me</div>
+  </div>
+
+  <script>
+    // 🔍 Search function
+    function searchMovies() {
+      let input = document.getElementById('search').value.toLowerCase();
+      let movies = document.getElementsByClassName('movie');
+
+      for (let i = 0; i < movies.length; i++) {
+        let movie = movies[i].innerText.toLowerCase();
+        if (movie.includes(input)) {
+          movies[i].style.display = "block";
+        } else {
+          movies[i].style.display = "none";
+        }
+      }
+    }
+
+    // 🎭 Genre filter
+    function filterGenre(genre) {
+      let movies = document.getElementsByClassName('movie');
+
+      for (let i = 0; i < movies.length; i++) {
+        if (genre === 'all') {
+          movies[i].style.display = "block";
+        } else if (movies[i].classList.contains(genre)) {
+          movies[i].style.display = "block";
+        } else {
+          movies[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

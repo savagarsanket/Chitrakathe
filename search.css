@@ -1,0 +1,33 @@
+nav {
+  background: #111;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+nav input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+nav button {
+  padding: 8px 12px;
+  background: #ff0000;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background: #cc0000;
+}
